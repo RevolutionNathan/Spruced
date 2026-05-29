@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spruced | Mequon</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0DC;
+    --green: #2D3B2E;
+    --terracotta: #C4703A;
+    --charcoal: #2A2A2A;
+    --sage: #8FA88C;
+    --cream-dark: #EDE6CA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: transparent;
+    transition: background 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(245,240,220,0.97);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--cream);
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  nav.scrolled .nav-links a { color: var(--charcoal); }
+  .nav-links a:hover { opacity: 0.6; }
+  .nav-logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  nav.scrolled .nav-logo { color: var(--charcoal); }
+  .nav-book a {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--cream);
+    text-transform: uppercase;
+  }
+  nav.scrolled .nav-book a { color: var(--charcoal); }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    z-index: 110;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  nav.scrolled .nav-hamburger span { background: var(--charcoal); }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE DRAWER */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--green);
+    z-index: 105;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .mobile-menu a {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s;
+  }
+  .mobile-menu a:hover { opacity: 0.6; }
+  .mobile-menu .mobile-book {
+    margin-top: 1rem;
+    background: var(--terracotta);
+    color: var(--cream);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.5rem;
+    border-radius: 4rem;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: #4a3728;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      #6b4c38 0%,
+      #4a3728 35%,
+      #2d3b2e 70%,
+      #1e2820 100%
+    );
+  }
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 150px;
+  }
+  .hero-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .hero-sub {
+    position: absolute;
+    bottom: 3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(245,240,220,0.75);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* SECTION: INTRO */
+  .intro {
+    background: var(--cream);
+    padding: 7rem 3rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .intro-photo {
+    position: relative;
+  }
+  .intro-photo .photo-card {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--green);
+    position: relative;
+  }
+  .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-label {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+  }
+  .intro-text h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--charcoal);
+  }
+  .intro-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(42,42,42,0.7);
+    margin-bottom: 2rem;
+    max-width: 420px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--charcoal);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 4rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--terracotta); color: var(--cream); transform: translateY(-2px); }
+
+  /* SERVICES */
+  .services-section {
+    background: var(--cream);
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .services-left h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+    color: var(--charcoal);
+  }
+  .service-item {
+    border-top: 1px solid rgba(42,42,42,0.15);
+    padding: 1.25rem 0;
+    cursor: pointer;
+  }
+  .service-item:last-child { border-bottom: 1px solid rgba(42,42,42,0.15); }
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-header span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    letter-spacing: 0.01em;
+  }
+  .service-toggle {
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    color: var(--charcoal);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .service-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 0.9rem;
+    color: rgba(42,42,42,0.65);
+    line-height: 1.7;
+  }
+  .service-body p { padding-top: 0.75rem; }
+  .service-item.open .service-body { max-height: 200px; }
+  .service-item.open .service-toggle { transform: rotate(45deg); }
+
+  .services-photos {
+    position: relative;
+    height: 500px;
+  }
+  .services-photos .photo-card-lg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 75%;
+    aspect-ratio: 3/4;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: var(--green);
+  }
+  .services-photos .photo-card-sm {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: var(--cream-dark);
+    z-index: 2;
+  }
+  .services-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .photo-placeholder-dark {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    color: rgba(42,42,42,0.3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* QUOTE SECTION */
+  .quote-section {
+    background: var(--green);
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .quote-photos {
+    position: relative;
+    height: 480px;
+  }
+  .quote-photos .qp-top {
+    position: absolute;
+    top: 0; left: 0;
+    width: 55%;
+    aspect-ratio: 2/3;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #3d4f3e;
+  }
+  .quote-photos .qp-bottom {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 60%;
+    aspect-ratio: 3/4;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #4a3728;
+  }
+  .quote-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .quote-text {
+    text-align: center;
+    padding: 2rem;
+  }
+  .quote-text blockquote {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .quote-text cite {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: rgba(245,240,220,0.5);
+    letter-spacing: 0.05em;
+    font-weight: 400;
+  }
+
+  /* TEAM */
+  .team-section {
+    background: var(--cream);
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .team-section h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--charcoal);
+  }
+  .team-section > p {
+    font-size: 0.95rem;
+    color: rgba(42,42,42,0.6);
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+  }
+  .team-subheading {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
+    margin: 3rem 0 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    opacity: 0.5;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  .team-card {
+    background: var(--cream-dark);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+  }
+  .team-card:hover { transform: translateY(-4px); }
+  .team-avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--sage);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .avatar-initial {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--cream);
+  }
+  .team-card h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+  }
+  .team-card .role {
+    font-size: 0.8rem;
+    color: rgba(42,42,42,0.5);
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }
+  .team-card .status {
+    font-size: 0.75rem;
+    color: rgba(42,42,42,0.45);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  .team-card a {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .team-card a:hover { text-decoration: underline; }
+
+  /* VISIT */
+  .visit-section {
+    background: var(--terracotta);
+    padding: 7rem 3rem;
+    overflow: hidden;
+  }
+  .visit-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .visit-text h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+  .visit-text p {
+    color: rgba(245,240,220,0.75);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .btn-secondary {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 4rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-secondary:hover { background: var(--charcoal); color: var(--cream); transform: translateY(-2px); }
+  .visit-info {
+    color: var(--cream);
+  }
+  .visit-info-block {
+    margin-bottom: 2rem;
+  }
+  .visit-info-block h4 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+  }
+  .visit-info-block p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+  .visit-photo-stack {
+    position: relative;
+    height: 420px;
+    display: none; /* hide on this layout, keep the info block */
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer .footer-brand {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+  footer .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  footer .footer-links a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(245,240,220,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer .footer-links a:hover { color: var(--cream); }
+  footer .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(245,240,220,0.3);
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .fade-up.delay-1 { animation-delay: 0.1s; }
+  .fade-up.delay-2 { animation-delay: 0.25s; }
+  .fade-up.delay-3 { animation-delay: 0.4s; }
+
+  /* AVEDA BADGE */
+  .aveda-bar {
+    background: var(--cream-dark);
+    padding: 1.25rem 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(42,42,42,0.45);
+  }
+
+  /* ── TABLET (900px) ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+
+    .intro {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      padding: 5rem 2rem 4rem;
+    }
+    .intro-text h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    .intro-text p { max-width: 100%; }
+
+    .services-section {
+      grid-template-columns: 1fr;
+      padding: 4rem 2rem;
+      gap: 3rem;
+    }
+    .services-photos {
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      position: static;
+    }
+    .services-photos .photo-card-lg,
+    .services-photos .photo-card-sm {
+      position: static;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 1.25rem;
+    }
+
+    .quote-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .quote-photos {
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      position: static;
+    }
+    .quote-photos .qp-top,
+    .quote-photos .qp-bottom {
+      position: static;
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 1.25rem;
+    }
+
+    .visit-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .visit-text h2 { font-size: clamp(2.5rem, 6vw, 4rem); }
+
+    .team-grid {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+
+  /* ── MOBILE (640px) ── */
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    .nav-book { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+
+    .hero-title { white-space: normal; text-align: center; padding: 0 1rem; }
+    .hero-sub { width: 90%; font-size: 0.78rem; }
+
+    .aveda-bar { padding: 1rem 1.25rem; font-size: 0.7rem; letter-spacing: 0.07em; }
+
+    .intro {
+      grid-template-columns: 1fr;
+      padding: 4rem 1.25rem 3rem;
+      gap: 2rem;
+    }
+    .intro-photo .photo-card { aspect-ratio: 16/9; }
+
+    .services-section {
+      padding: 3.5rem 1.25rem;
+      gap: 2.5rem;
+    }
+    .services-photos {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .services-photos .photo-card-lg,
+    .services-photos .photo-card-sm { aspect-ratio: 1/1; }
+
+    .quote-section { padding: 4rem 1.25rem; }
+    .quote-photos {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .quote-photos .qp-top,
+    .quote-photos .qp-bottom { aspect-ratio: 1/1; }
+    .quote-text { padding: 0; }
+
+    .team-section { padding: 4rem 1.25rem; }
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .team-card { padding: 1.1rem; }
+    .team-avatar { width: 52px; height: 52px; }
+    .avatar-initial { font-size: 1.1rem; }
+    .team-card h3 { font-size: 0.9rem; }
+
+    .visit-section { padding: 4rem 1.25rem; }
+    .visit-inner { gap: 2.5rem; }
+
+    footer {
+      padding: 2rem 1.25rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .footer-links { flex-wrap: wrap; gap: 1rem; }
+  }
+
+  /* ── SMALL MOBILE (380px) ── */
+  @media (max-width: 380px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .services-photos, .quote-photos { grid-template-columns: 1fr; }
+    .services-photos .photo-card-lg,
+    .services-photos .photo-card-sm,
+    .quote-photos .qp-top,
+    .quote-photos .qp-bottom { aspect-ratio: 16/9; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <a href="#" class="nav-logo">Spruced</a>
+  <div class="nav-book"><a href="https://spruced.glossgenius.com/" target="_blank">Book Now</a></div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#team" class="mobile-link">Team</a>
+  <a href="https://spruced.glossgenius.com/" target="_blank" class="mobile-book">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <h1 class="hero-title fade-up">Spruced</h1>
+  <div class="hero-sub fade-up delay-2">
+    Salon &amp; Wellness Spa &nbsp;·&nbsp; Mequon, Wisconsin<br>
+    Aveda · Independent Stylists · Earth-Friendly
+  </div>
+</section>
+
+<!-- AVEDA BAR -->
+<div class="aveda-bar">Proud Aveda Partner &nbsp;·&nbsp; Eco-Conscious Beauty &nbsp;·&nbsp; Mequon, WI</div>
+
+<!-- INTRO -->
+<section style="background:var(--cream);">
+  <div class="intro">
+    <div class="intro-photo">
+      <div class="photo-card" style="background:#4a6b4a;">
+        <div class="photo-placeholder" style="flex-direction:column;gap:0.5rem;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+          <span style="font-size:0.7rem;opacity:0.4;">Salon Photo</span>
+        </div>
+        <div class="photo-label">Spruced</div>
+      </div>
+    </div>
+    <div class="intro-text">
+      <h2>Empowering Beauty &amp; Wellness</h2>
+      <p>We are a full-service salon and wellness spa of independent service providers. Our mission is to empower our guests through natural methods, wellness, education, and beauty — using eco-friendly Aveda products.</p>
+      <p>We invite you to a place where passion meets purpose. Allow us to complement your most beautiful qualities.</p>
+      <a href="https://spruced.glossgenius.com/" target="_blank" class="btn-primary">Book an Appointment</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--cream);">
+  <div class="services-section">
+    <div class="services-left">
+      <h2>Services</h2>
+
+      <div class="service-item open">
+        <div class="service-header" onclick="toggleService(this)">
+          <span>Hair Color &amp; Highlights</span>
+          <div class="service-toggle">+</div>
+        </div>
+        <div class="service-body"><p>From root touch-ups to full transformations, our Aveda-certified colorists craft personalized shades that protect vibrancy for up to 12 weeks. Balayage, highlights, color correction, and more.</p></div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header" onclick="toggleService(this)">
+          <span>Cuts &amp; Styling</span>
+          <div class="service-toggle">+</div>
+        </div>
+        <div class="service-body"><p>Precision cuts tailored to your hair type, face shape, and lifestyle. Blowouts, special occasion styling, and everyday looks that last.</p></div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header" onclick="toggleService(this)">
+          <span>Treatments &amp; Consultations</span>
+          <div class="service-toggle">+</div>
+        </div>
+        <div class="service-body"><p>Deep conditioning, botanical repair treatments, and personalized consultations to identify the right Aveda regimen for your hair's unique needs.</p></div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header" onclick="toggleService(this)">
+          <span>Massage Therapy</span>
+          <div class="service-toggle">+</div>
+        </div>
+        <div class="service-body"><p>Therapeutic massage by independent licensed therapists. Swedish, deep tissue, and custom wellness sessions designed to restore and renew.</p></div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header" onclick="toggleService(this)">
+          <span>Nails &amp; Esthetics</span>
+          <div class="service-toggle">+</div>
+        </div>
+        <div class="service-body"><p>Nail care, facials, brow services, spray tans, and microblading from our spa specialists. Head-to-toe beauty in one welcoming space.</p></div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header" onclick="toggleService(this)">
+          <span>Aveda Retail Shop</span>
+          <div class="service-toggle">+</div>
+        </div>
+        <div class="service-body"><p>Browse our full selection of Aveda hair care, skin care, and body products — plant-powered, sustainably sourced, and crafted with your wellbeing and the planet in mind.</p></div>
+      </div>
+    </div>
+
+    <div class="services-photos">
+      <div class="photo-card-lg" style="background:#2d3b2e;">
+        <div class="photo-placeholder">Salon Photo</div>
+      </div>
+      <div class="photo-card-sm" style="background:#e8dfc8;">
+        <div class="photo-placeholder-dark">Products</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-inner">
+    <div class="quote-photos">
+      <div class="qp-top" style="background:#3d4f3e;">
+        <div class="photo-placeholder">Team Photo</div>
+      </div>
+      <div class="qp-bottom" style="background:#5c3d28;">
+        <div class="photo-placeholder">Style Photo</div>
+      </div>
+    </div>
+    <div class="quote-text">
+      <blockquote>"Our mission is to empower guests and communities through natural methods, wellness, education, and beauty."</blockquote>
+      <cite>Sara Harder, Owner · Spruced</cite>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="background:var(--cream);">
+  <div class="team-section">
+    <h2>Meet the Team</h2>
+    <p>Each of our team members are independent business owners. Contact them directly for booking or book online.</p>
+
+    <div class="team-subheading">Salon</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">S</div></div>
+        <h3>Sara Harder</h3>
+        <div class="role">Owner · Stylist</div>
+        <div class="status">Not currently accepting new guests</div>
+        <a href="tel:4147912131">414.791.2131</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">A</div></div>
+        <h3>Alli Schreiber</h3>
+        <div class="role">Stylist</div>
+        <a href="https://spruced.glossgenius.com/services" target="_blank">Book Now →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">C</div></div>
+        <h3>Cheryl Aguinaga</h3>
+        <div class="role">Stylist</div>
+        <a href="tel:4146880414">414.688.0414</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">A</div></div>
+        <h3>Arianna Bogenschild</h3>
+        <div class="role">Stylist</div>
+        <a href="https://spruced.glossgenius.com/services" target="_blank">Book Now →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">S</div></div>
+        <h3>Sarah Sesum</h3>
+        <div class="role">Stylist</div>
+        <a href="http://Blendhaircollective.com" target="_blank">Visit Blend →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">A</div></div>
+        <h3>Amanda Styles</h3>
+        <div class="role">Stylist</div>
+        <div class="status">Not currently accepting new guests</div>
+        <a href="tel:2626172760">262.617.2760</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">R</div></div>
+        <h3>Rachael Zembrowski</h3>
+        <div class="role">Stylist</div>
+        <div class="status">Not currently accepting new guests</div>
+        <a href="https://spruced.glossgenius.com/services" target="_blank">Book Now →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">M</div></div>
+        <h3>Mel Mayer</h3>
+        <div class="role">Stylist</div>
+        <a href="tel:2624243208">262.424.3208</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">A</div></div>
+        <h3>Angela Trost</h3>
+        <div class="role">Stylist</div>
+        <a href="tel:4144779877">414.477.9877</a>
+      </div>
+    </div>
+
+    <div class="team-subheading" style="margin-top:3.5rem;">Spa</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">E</div></div>
+        <h3>Emily Kletzien</h3>
+        <div class="role">Nail Technician · Esthetician</div>
+        <div class="status">Not currently accepting new guests</div>
+        <a href="mailto:Emily.nailspabar@gmail.com">Email Emily</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">H</div></div>
+        <h3>Hannah Vroman-Brown</h3>
+        <div class="role">Massage Therapist</div>
+        <a href="http://commonthreadmassage.com" target="_blank">Common Thread →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">J</div></div>
+        <h3>Jenna Frank</h3>
+        <div class="role">Massage Therapist</div>
+        <div class="status">Not currently accepting new guests</div>
+        <a href="http://www.massagebook.com/biz/backinbalancebodyworks" target="_blank">Back in Balance →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">M</div></div>
+        <h3>Mimi Holton</h3>
+        <div class="role">Massage Therapist</div>
+        <a href="https://www.massagebook.com/Mequon~Massage~helo-wellness-?src=external" target="_blank">HeLo Wellness →</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">M</div></div>
+        <h3>Megan Wantz</h3>
+        <div class="role">Brow Specialist · Esthetician · Spray Tan</div>
+        <a href="http://mwmicroblade.com" target="_blank">MW Microblade →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit-section">
+  <div class="visit-inner">
+    <div class="visit-text">
+      <h2>Come Visit!</h2>
+      <p>Contact us and experience earth-friendly Aveda beauty and high-quality salon services in our wellness spa. We hope to meet you soon!</p>
+      <a href="https://spruced.glossgenius.com/" target="_blank" class="btn-secondary">Book Online</a>
+    </div>
+    <div class="visit-info">
+      <div class="visit-info-block">
+        <h4>Location</h4>
+        <p>Mequon, Wisconsin<br>Ozaukee County</p>
+      </div>
+      <div class="visit-info-block">
+        <h4>Booking</h4>
+        <p>Book online via GlossGenius<br>or contact your stylist directly</p>
+      </div>
+      <div class="visit-info-block">
+        <h4>Follow Along</h4>
+        <p>
+          <a href="https://www.instagram.com/spruced/" target="_blank" style="color:rgba(245,240,220,0.85);text-decoration:none;font-weight:600;">@spruced</a> on Instagram<br>
+          <a href="https://www.facebook.com/colourbowlavedasalon" target="_blank" style="color:rgba(245,240,220,0.85);text-decoration:none;font-weight:600;">Facebook</a>
+        </p>
+      </div>
+      <div class="visit-info-block">
+        <h4>Stylist Chair Available</h4>
+        <p style="font-size:0.9rem;">Looking to join our team? We have a chair open for the right stylist. Reach out to connect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Spruced</div>
+  <ul class="footer-links">
+    <li><a href="https://www.spruced.com/shop-1" target="_blank">Shop</a></li>
+    <li><a href="https://www.spruced.com/careers" target="_blank">Careers</a></li>
+    <li><a href="https://www.spruced.com/policies" target="_blank">Policies</a></li>
+    <li><a href="https://www.spruced.com/contact" target="_blank">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Spruced · Mequon, WI · Aveda Salon &amp; Wellness Spa</div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  // Close on link click
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Service accordion
+  function toggleService(header) {
+    const item = header.closest('.service-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.service-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll fade-in for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.team-card, .service-item, .visit-info-block').forEach(el => {
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
