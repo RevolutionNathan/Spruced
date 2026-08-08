@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spruced | Mequon</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Spruced | Glendale, WI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #F5F0DC;
     --green: #2D3B2E;
-    --terracotta: #C4703A;
+    --gold: #b8962e;
+    --gold-light: #d4b97a;
+    --rose: #B8897A;
+    --rose-light: #D4B4A8;
     --charcoal: #2A2A2A;
     --sage: #8FA88C;
     --cream-dark: #EDE6CA;
@@ -20,7 +23,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     background: var(--cream);
     color: var(--charcoal);
     overflow-x: hidden;
@@ -45,33 +48,33 @@
   }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-decoration: none;
-    color: var(--cream);
+    color: var(--green);
     text-transform: uppercase;
     transition: opacity 0.2s;
   }
   nav.scrolled .nav-links a { color: var(--charcoal); }
   .nav-links a:hover { opacity: 0.6; }
   .nav-logo {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 900;
-    color: var(--cream);
+    color: var(--green);
     letter-spacing: -0.01em;
     text-decoration: none;
   }
   nav.scrolled .nav-logo { color: var(--charcoal); }
   .nav-book a {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-decoration: none;
-    color: var(--cream);
+    color: var(--green);
     text-transform: uppercase;
   }
   nav.scrolled .nav-book a { color: var(--charcoal); }
@@ -120,7 +123,7 @@
     pointer-events: all;
   }
   .mobile-menu a {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem;
     font-weight: 900;
     color: var(--cream);
@@ -131,9 +134,9 @@
   .mobile-menu a:hover { opacity: 0.6; }
   .mobile-menu .mobile-book {
     margin-top: 1rem;
-    background: var(--terracotta);
+    background: var(--rose);
     color: var(--cream);
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -148,11 +151,12 @@
   .hero {
     position: relative;
     height: 100vh;
-    min-height: 600px;
+    min-height: 700px;
     background: #4a3728;
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
   .hero-bg {
@@ -160,10 +164,9 @@
     inset: 0;
     background: linear-gradient(
       160deg,
-      #6b4c38 0%,
-      #4a3728 35%,
-      #2d3b2e 70%,
-      #1e2820 100%
+      #b8962e 0%,
+      #d4b97a 40%,
+      #F5F0DC 100%
     );
   }
   .hero-grain {
@@ -178,27 +181,24 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -55%);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.5rem, 10vw, 9rem);
     font-weight: 900;
-    color: var(--cream);
+    color: var(--green);
     letter-spacing: -0.02em;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
   }
   .hero-sub {
-    position: absolute;
-    bottom: 3.5rem;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
-    color: rgba(245,240,220,0.75);
+    color: rgba(45,59,46,0.75);
     font-size: 0.9rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 300;
     line-height: 1.8;
+    margin-top: 1.5rem;
   }
 
   /* SECTION: INTRO */
@@ -236,7 +236,7 @@
     text-transform: uppercase;
   }
   .intro-text h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 900;
     line-height: 1.05;
@@ -255,7 +255,7 @@
     display: inline-block;
     background: var(--sage);
     color: var(--charcoal);
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -264,7 +264,7 @@
     border-radius: 4rem;
     transition: background 0.2s, transform 0.2s;
   }
-  .btn-primary:hover { background: var(--terracotta); color: var(--cream); transform: translateY(-2px); }
+  .btn-primary:hover { background: var(--rose); color: var(--cream); transform: translateY(-2px); }
 
   /* SERVICES */
   .services-section {
@@ -278,19 +278,19 @@
     align-items: start;
   }
   .services-left h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 900;
     letter-spacing: -0.02em;
     margin-bottom: 2.5rem;
-    color: var(--charcoal);
+    color: var(--green);
   }
   .service-item {
-    border-top: 1px solid rgba(42,42,42,0.15);
+    border-top: 1px solid rgba(45,59,46,0.15);
     padding: 1.25rem 0;
     cursor: pointer;
   }
-  .service-item:last-child { border-bottom: 1px solid rgba(42,42,42,0.15); }
+  .service-item:last-child { border-bottom: 1px solid rgba(45,59,46,0.15); }
   .service-header {
     display: flex;
     justify-content: space-between;
@@ -299,14 +299,14 @@
   .service-header span {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--charcoal);
+    color: var(--green);
     letter-spacing: 0.01em;
   }
   .service-toggle {
     width: 28px; height: 28px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.3rem;
-    color: var(--charcoal);
+    color: var(--green);
     transition: transform 0.25s;
     flex-shrink: 0;
   }
@@ -408,7 +408,7 @@
     padding: 2rem;
   }
   .quote-text blockquote {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     font-weight: 900;
     color: var(--cream);
@@ -432,12 +432,12 @@
     margin: 0 auto;
   }
   .team-section h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 900;
     letter-spacing: -0.02em;
     margin-bottom: 0.75rem;
-    color: var(--charcoal);
+    color: var(--green);
   }
   .team-section > p {
     font-size: 0.95rem;
@@ -446,7 +446,7 @@
     font-weight: 300;
   }
   .team-subheading {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
     font-weight: 900;
     color: var(--charcoal);
@@ -466,57 +466,74 @@
     background: var(--cream-dark);
     border-radius: 1.25rem;
     padding: 1.5rem;
-    transition: transform 0.2s;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
   }
-  .team-card:hover { transform: translateY(-4px); }
+  .team-card:hover {
+    transform: translateY(-6px);
+    background: var(--green);
+    box-shadow: 0 12px 32px rgba(45,59,46,0.18);
+  }
+  .team-card:hover h3 { color: var(--gold-light); }
+  .team-card:hover .role { color: rgba(245,240,220,0.6); }
+  .team-card:hover .status { color: rgba(245,240,220,0.5); }
+  .team-card:hover .avatar-initial { color: var(--green); background: var(--gold-light); }
+  .team-card:hover a { color: var(--rose-light); }
   .team-avatar {
     width: 72px; height: 72px;
     border-radius: 50%;
     background: var(--sage);
     margin-bottom: 1rem;
     overflow: hidden;
+    transition: box-shadow 0.25s ease;
   }
+  .team-card:hover .team-avatar { box-shadow: 0 0 0 3px var(--gold-light); }
   .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .avatar-initial {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
     font-weight: 900;
     color: var(--cream);
+    transition: color 0.25s ease;
   }
   .team-card h3 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 900;
-    color: var(--charcoal);
+    color: var(--green);
     margin-bottom: 0.25rem;
+    transition: color 0.25s ease;
   }
   .team-card .role {
     font-size: 0.8rem;
     color: rgba(42,42,42,0.5);
     margin-bottom: 0.75rem;
     font-weight: 300;
+    transition: color 0.25s ease;
   }
   .team-card .status {
     font-size: 0.75rem;
     color: rgba(42,42,42,0.45);
     font-style: italic;
     margin-bottom: 0.5rem;
+    transition: color 0.25s ease;
   }
   .team-card a {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--terracotta);
+    color: var(--gold);
     text-decoration: none;
     letter-spacing: 0.03em;
+    transition: color 0.25s ease;
   }
   .team-card a:hover { text-decoration: underline; }
 
   /* VISIT */
   .visit-section {
-    background: var(--terracotta);
+    background: var(--rose);
     padding: 7rem 3rem;
     overflow: hidden;
   }
@@ -529,7 +546,7 @@
     align-items: center;
   }
   .visit-text h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3rem, 7vw, 6rem);
     font-weight: 900;
     color: var(--cream);
@@ -547,7 +564,7 @@
     display: inline-block;
     background: var(--cream);
     color: var(--charcoal);
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -564,7 +581,7 @@
     margin-bottom: 2rem;
   }
   .visit-info-block h4 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.75rem;
     font-weight: 900;
     letter-spacing: 0.12em;
@@ -586,7 +603,7 @@
 
   /* FOOTER */
   footer {
-    background: var(--charcoal);
+    background: var(--green);
     padding: 3rem;
     display: flex;
     align-items: center;
@@ -595,10 +612,10 @@
     gap: 1rem;
   }
   footer .footer-brand {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
     font-weight: 900;
-    color: var(--cream);
+    color: var(--gold-light);
     letter-spacing: -0.01em;
   }
   footer .footer-links {
@@ -615,7 +632,7 @@
     text-decoration: none;
     transition: color 0.2s;
   }
-  footer .footer-links a:hover { color: var(--cream); }
+  footer .footer-links a:hover { color: var(--gold-light); }
   footer .footer-copy {
     font-size: 0.8rem;
     color: rgba(245,240,220,0.3);
@@ -789,8 +806,8 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#team">Team</a></li>
   </ul>
-  <a href="#" class="nav-logo">Spruced</a>
-  <div class="nav-book"><a href="https://spruced.glossgenius.com/" target="_blank">Book Now</a></div>
+  <a href="#" class="nav-logo">SPRUCED</a>
+  <div class="nav-book"><a href="#" onclick="event.preventDefault();document.getElementById('bookModal').style.display='flex'">Book Now</a></div>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -800,40 +817,45 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" class="mobile-link">Services</a>
   <a href="#team" class="mobile-link">Team</a>
-  <a href="https://spruced.glossgenius.com/" target="_blank" class="mobile-book">Book Now</a>
+  <a href="#" onclick="event.preventDefault();document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.body.style.overflow='';document.getElementById('bookModal').style.display='flex'" class="mobile-book">Book Now</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
-  <h1 class="hero-title fade-up">Spruced</h1>
+  <img src="logo.png" alt="Spruced" class="fade-up" style="width:clamp(200px,45vw,480px);max-height:60vh;object-fit:contain;position:relative;z-index:1;">
   <div class="hero-sub fade-up delay-2">
-    Salon &amp; Wellness Spa &nbsp;·&nbsp; Mequon, Wisconsin<br>
-    Aveda · Independent Stylists · Earth-Friendly
+    Full-Service Salon &nbsp;·&nbsp; Glendale, Wisconsin<br>
+    Aveda · Independent Stylists
   </div>
 </section>
 
 <!-- AVEDA BAR -->
-<div class="aveda-bar">Proud Aveda Partner &nbsp;·&nbsp; Eco-Conscious Beauty &nbsp;·&nbsp; Mequon, WI</div>
+<div class="aveda-bar">Proud Aveda Partner &nbsp;·&nbsp; Independent Stylists &nbsp;·&nbsp; Glendale, WI</div>
 
 <!-- INTRO -->
 <section style="background:var(--cream);">
   <div class="intro">
     <div class="intro-photo">
-      <div class="photo-card" style="background:#4a6b4a;">
-        <div class="photo-placeholder" style="flex-direction:column;gap:0.5rem;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-          <span style="font-size:0.7rem;opacity:0.4;">Salon Photo</span>
-        </div>
-        <div class="photo-label">Spruced</div>
+      <div class="photo-card" style="background:#4a6b4a;overflow:hidden;"><img src="26 - Salon Social.png" alt="Spruced Salon" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
     </div>
     <div class="intro-text">
-      <h2>Empowering Beauty &amp; Wellness</h2>
-      <p>We are a full-service salon and wellness spa of independent service providers. Our mission is to empower our guests through natural methods, wellness, education, and beauty — using eco-friendly Aveda products.</p>
-      <p>We invite you to a place where passion meets purpose. Allow us to complement your most beautiful qualities.</p>
-      <a href="https://spruced.glossgenius.com/" target="_blank" class="btn-primary">Book an Appointment</a>
+      <h2>The Art of Great Hair</h2>
+      <p>Spruced is a full-service Aveda salon home to independent stylists in Glendale, Wisconsin. We believe great hair starts with the right cut, color, extensions, and care — and a stylist who really listens.</p>
+      <p>Come in and experience the difference of working with passionate, skilled professionals in a beautiful, welcoming space.</p>
+      <a href="#" onclick="event.preventDefault();document.getElementById('bookModal').style.display='flex'" class="btn-primary">Book an Appointment</a>
+      <div style="display:flex;gap:1rem;margin-top:1.75rem;align-items:center;">
+        <a href="https://www.instagram.com/spruced_salon" target="_blank" style="display:flex;align-items:center;gap:0.6rem;color:var(--rose);text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;letter-spacing:0.06em;border:1.5px solid var(--rose);padding:0.5rem 1.1rem;border-radius:999px;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--rose)';this.style.color='var(--cream)'" onmouseout="this.style.background='transparent';this.style.color='var(--rose)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/share/18xeUF8gE2/" target="_blank" style="display:flex;align-items:center;gap:0.6rem;color:var(--rose);text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;letter-spacing:0.06em;border:1.5px solid var(--rose);padding:0.5rem 1.1rem;border-radius:999px;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--rose)';this.style.color='var(--cream)'" onmouseout="this.style.background='transparent';this.style.color='var(--rose)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -865,37 +887,21 @@
           <span>Treatments &amp; Consultations</span>
           <div class="service-toggle">+</div>
         </div>
-        <div class="service-body"><p>Deep conditioning, botanical repair treatments, and personalized consultations to identify the right Aveda regimen for your hair's unique needs.</p></div>
+        <div class="service-body"><p>Deep conditioning, bond-building treatments, and personalized consultations to restore health and shine. We'll find the right Aveda regimen for your hair's unique needs.</p></div>
       </div>
 
       <div class="service-item">
         <div class="service-header" onclick="toggleService(this)">
-          <span>Massage Therapy</span>
+          <span>Extensions</span>
           <div class="service-toggle">+</div>
         </div>
-        <div class="service-body"><p>Therapeutic massage by independent licensed therapists. Swedish, deep tissue, and custom wellness sessions designed to restore and renew.</p></div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-header" onclick="toggleService(this)">
-          <span>Nails &amp; Esthetics</span>
-          <div class="service-toggle">+</div>
-        </div>
-        <div class="service-body"><p>Nail care, facials, brow services, spray tans, and microblading from our spa specialists. Head-to-toe beauty in one welcoming space.</p></div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-header" onclick="toggleService(this)">
-          <span>Aveda Retail Shop</span>
-          <div class="service-toggle">+</div>
-        </div>
-        <div class="service-body"><p>Browse our full selection of Aveda hair care, skin care, and body products — plant-powered, sustainably sourced, and crafted with your wellbeing and the planet in mind.</p></div>
+        <div class="service-body"><p>Add length, volume, or both. Our stylists specialize in seamless extension methods tailored to your hair type — for results that look and feel completely natural.</p></div>
       </div>
     </div>
 
     <div class="services-photos">
-      <div class="photo-card-lg" style="background:#2d3b2e;">
-        <div class="photo-placeholder">Salon Photo</div>
+      <div class="photo-card-lg" style="background:#2d3b2e;overflow:hidden;">
+        <img src="salon-invati.png" alt="Aveda Hair Color" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
       </div>
       <div class="photo-card-sm" style="background:#e8dfc8;">
         <div class="photo-placeholder-dark">Products</div>
@@ -916,8 +922,11 @@
       </div>
     </div>
     <div class="quote-text">
-      <blockquote>"Our mission is to empower guests and communities through natural methods, wellness, education, and beauty."</blockquote>
-      <cite>Sara Harder, Owner · Spruced</cite>
+      <blockquote>"Hair is the one thing you wear every day. We take that seriously — and we make sure you leave feeling like the best version of yourself."</blockquote>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem;">
+        <img src="sarah.png" alt="Sarah Whitcomb" style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;">
+        <cite style="text-align:left;">Sarah Whitcomb<br>Owner · Spruced</cite>
+      </div>
     </div>
   </div>
 </section>
@@ -928,100 +937,41 @@
     <h2>Meet the Team</h2>
     <p>Each of our team members are independent business owners. Contact them directly for booking or book online.</p>
 
-    <div class="team-subheading">Salon</div>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">S</div></div>
-        <h3>Sara Harder</h3>
+        <div class="team-avatar"><img src="sarah.png" alt="Sarah Whitcomb"></div>
+        <h3>Sarah Whitcomb</h3>
         <div class="role">Owner · Stylist</div>
-        <div class="status">Not currently accepting new guests</div>
-        <a href="tel:4147912131">414.791.2131</a>
+        <a href="https://squareup.com/appointments/book/4G2RT7CCA2CVX" target="_blank">Book Now →</a>
       </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">A</div></div>
-        <h3>Alli Schreiber</h3>
-        <div class="role">Stylist</div>
-        <a href="https://spruced.glossgenius.com/services" target="_blank">Book Now →</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">C</div></div>
-        <h3>Cheryl Aguinaga</h3>
-        <div class="role">Stylist</div>
-        <a href="tel:4146880414">414.688.0414</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">A</div></div>
-        <h3>Arianna Bogenschild</h3>
-        <div class="role">Stylist</div>
-        <a href="https://spruced.glossgenius.com/services" target="_blank">Book Now →</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">S</div></div>
-        <h3>Sarah Sesum</h3>
-        <div class="role">Stylist</div>
-        <a href="http://Blendhaircollective.com" target="_blank">Visit Blend →</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">A</div></div>
-        <h3>Amanda Styles</h3>
-        <div class="role">Stylist</div>
-        <div class="status">Not currently accepting new guests</div>
-        <a href="tel:2626172760">262.617.2760</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">R</div></div>
-        <h3>Rachael Zembrowski</h3>
-        <div class="role">Stylist</div>
-        <div class="status">Not currently accepting new guests</div>
-        <a href="https://spruced.glossgenius.com/services" target="_blank">Book Now →</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">M</div></div>
-        <h3>Mel Mayer</h3>
-        <div class="role">Stylist</div>
-        <a href="tel:2624243208">262.424.3208</a>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">A</div></div>
-        <h3>Angela Trost</h3>
-        <div class="role">Stylist</div>
-        <a href="tel:4144779877">414.477.9877</a>
-      </div>
-    </div>
-
-    <div class="team-subheading" style="margin-top:3.5rem;">Spa</div>
-    <div class="team-grid">
       <div class="team-card">
         <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">E</div></div>
-        <h3>Emily Kletzien</h3>
-        <div class="role">Nail Technician · Esthetician</div>
-        <div class="status">Not currently accepting new guests</div>
-        <a href="mailto:Emily.nailspabar@gmail.com">Email Emily</a>
+        <h3>Elizabeth Ketterhagen</h3>
+        <div class="role">Stylist</div>
+        <a href="https://spruced.glossgenius.com/" target="_blank">Book Now →</a>
       </div>
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">H</div></div>
-        <h3>Hannah Vroman-Brown</h3>
-        <div class="role">Massage Therapist</div>
-        <a href="http://commonthreadmassage.com" target="_blank">Common Thread →</a>
+        <div class="team-avatar"><div class="avatar-initial" style="background:#b8962e;">L</div></div>
+        <h3>Lisa Barkley</h3>
+        <div class="role">Stylist</div>
+        <a href="https://spruced.glossgenius.com/" target="_blank">Book Now →</a>
       </div>
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">J</div></div>
-        <h3>Jenna Frank</h3>
-        <div class="role">Massage Therapist</div>
-        <div class="status">Not currently accepting new guests</div>
-        <a href="http://www.massagebook.com/biz/backinbalancebodyworks" target="_blank">Back in Balance →</a>
+        <div class="team-avatar"><div class="avatar-initial" style="background:#c4703a;">M</div></div>
+        <h3>Michelle Parks</h3>
+        <div class="role">Stylist</div>
+        <a href="https://spruced.glossgenius.com/" target="_blank">Book Now →</a>
       </div>
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#4a6b4a;">M</div></div>
-        <h3>Mimi Holton</h3>
-        <div class="role">Massage Therapist</div>
-        <a href="https://www.massagebook.com/Mequon~Massage~helo-wellness-?src=external" target="_blank">HeLo Wellness →</a>
+        <div class="team-avatar"><div class="avatar-initial" style="background:#6b4c38;">L</div></div>
+        <h3>Laura Neuman</h3>
+        <div class="role">Stylist</div>
+        <a href="https://spruced.glossgenius.com/" target="_blank">Book Now →</a>
       </div>
-      <div class="team-card">
-        <div class="team-avatar"><div class="avatar-initial" style="background:#8fa88c;">M</div></div>
-        <h3>Megan Wantz</h3>
-        <div class="role">Brow Specialist · Esthetician · Spray Tan</div>
-        <a href="http://mwmicroblade.com" target="_blank">MW Microblade →</a>
+      <div class="team-card" style="border: 2px dashed rgba(45,59,46,0.25); background: transparent; cursor:pointer;" onclick="document.getElementById('chairModal').style.display='flex'">
+        <div class="team-avatar"><div class="avatar-initial" style="background:var(--green);">+</div></div>
+        <h3>Chair Available</h3>
+        <div class="role">Available for rent</div>
       </div>
     </div>
   </div>
@@ -1032,13 +982,13 @@
   <div class="visit-inner">
     <div class="visit-text">
       <h2>Come Visit!</h2>
-      <p>Contact us and experience earth-friendly Aveda beauty and high-quality salon services in our wellness spa. We hope to meet you soon!</p>
-      <a href="https://spruced.glossgenius.com/" target="_blank" class="btn-secondary">Book Online</a>
+      <p>Contact us and experience Aveda beauty and high-quality salon services in Glendale, Wisconsin. We hope to meet you soon!</p>
+      <a href="#" onclick="event.preventDefault();document.getElementById('bookModal').style.display='flex'" class="btn-secondary">Book Online</a>
     </div>
     <div class="visit-info">
       <div class="visit-info-block">
         <h4>Location</h4>
-        <p>Mequon, Wisconsin<br>Ozaukee County</p>
+        <p>Glendale, Wisconsin</p>
       </div>
       <div class="visit-info-block">
         <h4>Booking</h4>
@@ -1047,7 +997,7 @@
       <div class="visit-info-block">
         <h4>Follow Along</h4>
         <p>
-          <a href="https://www.instagram.com/spruced/" target="_blank" style="color:rgba(245,240,220,0.85);text-decoration:none;font-weight:600;">@spruced</a> on Instagram<br>
+          <a href="https://www.instagram.com/spruced_salon" target="_blank" style="color:rgba(245,240,220,0.85);text-decoration:none;font-weight:600;">@spruced_salon</a> on Instagram<br>
           <a href="https://www.facebook.com/colourbowlavedasalon" target="_blank" style="color:rgba(245,240,220,0.85);text-decoration:none;font-weight:600;">Facebook</a>
         </p>
       </div>
@@ -1063,15 +1013,97 @@
 <footer>
   <div class="footer-brand">Spruced</div>
   <ul class="footer-links">
-    <li><a href="https://www.spruced.com/shop-1" target="_blank">Shop</a></li>
-    <li><a href="https://www.spruced.com/careers" target="_blank">Careers</a></li>
-    <li><a href="https://www.spruced.com/policies" target="_blank">Policies</a></li>
-    <li><a href="https://www.spruced.com/contact" target="_blank">Contact</a></li>
+    <li><a href="https://www.instagram.com/spruced_salon" target="_blank">Instagram</a></li>
+    <li><a href="https://www.facebook.com/share/18xeUF8gE2/" target="_blank">Facebook</a></li>
   </ul>
-  <div class="footer-copy">© 2026 Spruced · Mequon, WI · Aveda Salon &amp; Wellness Spa</div>
+  <div class="footer-copy">© 2026 Spruced · Glendale, WI · Aveda Salon</div>
 </footer>
 
+<!-- BOOK MODAL -->
+<div id="bookModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:var(--cream);border-radius:1.5rem;padding:2.5rem;max-width:420px;width:90%;max-height:85vh;overflow-y:auto;">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:900;color:var(--green);margin-bottom:0.25rem;">Book an Appointment</h3>
+    <p style="font-size:0.85rem;color:rgba(42,42,42,0.5);margin-bottom:1.75rem;letter-spacing:0.03em;">Choose your stylist to book online or call directly.</p>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--cream-dark);border-radius:1rem;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--green);font-size:1rem;">Sarah Whitcomb</div>
+          <div style="font-size:0.78rem;color:rgba(42,42,42,0.5);">Owner · Stylist</div>
+        </div>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="https://squareup.com/appointments/book/4G2RT7CCA2CVX" target="_blank" style="background:var(--green);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;white-space:nowrap;">Book</a>
+          <a href="tel:SARAH_PHONE" style="background:var(--rose);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;">Call</a>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--cream-dark);border-radius:1rem;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--green);font-size:1rem;">Elizabeth Ketterhagen</div>
+          <div style="font-size:0.78rem;color:rgba(42,42,42,0.5);">Stylist</div>
+        </div>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="ELIZABETH_BOOKING_URL" target="_blank" style="background:var(--green);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;white-space:nowrap;">Book</a>
+          <a href="tel:ELIZABETH_PHONE" style="background:var(--rose);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;">Call</a>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--cream-dark);border-radius:1rem;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--green);font-size:1rem;">Lisa Barkley</div>
+          <div style="font-size:0.78rem;color:rgba(42,42,42,0.5);">Stylist</div>
+        </div>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="LISA_BOOKING_URL" target="_blank" style="background:var(--green);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;white-space:nowrap;">Book</a>
+          <a href="tel:LISA_PHONE" style="background:var(--rose);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;">Call</a>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--cream-dark);border-radius:1rem;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--green);font-size:1rem;">Michelle Parks</div>
+          <div style="font-size:0.78rem;color:rgba(42,42,42,0.5);">Stylist</div>
+        </div>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="MICHELLE_BOOKING_URL" target="_blank" style="background:var(--green);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;white-space:nowrap;">Book</a>
+          <a href="tel:MICHELLE_PHONE" style="background:var(--rose);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;">Call</a>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--cream-dark);border-radius:1rem;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--green);font-size:1rem;">Laura Neuman</div>
+          <div style="font-size:0.78rem;color:rgba(42,42,42,0.5);">Stylist</div>
+        </div>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="LAURA_BOOKING_URL" target="_blank" style="background:var(--green);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;white-space:nowrap;">Book</a>
+          <a href="tel:LAURA_PHONE" style="background:var(--rose);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;text-decoration:none;padding:0.5rem 1rem;border-radius:4rem;">Call</a>
+        </div>
+      </div>
+
+    </div>
+    <button onclick="document.getElementById('bookModal').style.display='none'" style="display:block;width:100%;margin-top:1.5rem;background:none;border:none;font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:rgba(42,42,42,0.4);cursor:pointer;padding:0.5rem;letter-spacing:0.05em;text-transform:uppercase;">Dismiss</button>
+  </div>
+</div>
+
+<!-- CHAIR MODAL -->
+<div id="chairModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:var(--cream);border-radius:1.5rem;padding:2.5rem;max-width:360px;width:90%;text-align:center;">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:900;color:var(--green);margin-bottom:0.5rem;">Interested in a Chair?</h3>
+    <p style="font-size:0.9rem;color:rgba(42,42,42,0.6);margin-bottom:2rem;line-height:1.6;">Reach out to Sarah to learn more about renting a chair at Spruced.</p>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <a href="tel:4148077956" style="display:block;background:var(--green);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;text-decoration:none;padding:1rem;border-radius:4rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Call 414.807.7956</a>
+      <a href="mailto:sarah@texture.salon" style="display:block;background:var(--rose);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;text-decoration:none;padding:1rem;border-radius:4rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Email Sarah</a>
+      <button onclick="document.getElementById('chairModal').style.display='none'" style="background:none;border:none;font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:rgba(42,42,42,0.4);cursor:pointer;padding:0.5rem;letter-spacing:0.05em;text-transform:uppercase;">Dismiss</button>
+    </div>
+  </div>
+</div>
+
 <script>
+  // Prevent browser scroll restoration jump
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
   // Nav scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -1114,9 +1146,12 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.team-card, .service-item, .visit-info-block').forEach(el => {
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
+    const rect = el.getBoundingClientRect();
+    if (rect.top > window.innerHeight) {
+      el.style.transition = 'opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1)';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(70px)';
+    }
     observer.observe(el);
   });
 </script>
